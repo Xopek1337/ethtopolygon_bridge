@@ -5,10 +5,12 @@ const execute = async () => {
   const client = await getPOSClient();
   const erc721Token = client.erc721(pos.parent.erc721, true);
 
-  const isCheckPointed = await client.isCheckPointed('0x30ed80e67f193b7480a10c538d54b07ae561546fcfe9608361acfad762c64e26');
+  withdrawStartTxHash = '0x30ed80e67f193b7480a10c538d54b07ae561546fcfe9608361acfad762c64e26'
+
+  const isCheckPointed = await client.isCheckPointed(withdrawStartTxHash);
   console.log("isCheckPointed", isCheckPointed);
 
-  const result = await erc721Token.withdrawExit('0x30ed80e67f193b7480a10c538d54b07ae561546fcfe9608361acfad762c64e26');
+  const result = await erc721Token.withdrawExit(withdrawStartTxHash);
 
   const txHash = await result.getTransactionHash();
   console.log("txHash", txHash);
