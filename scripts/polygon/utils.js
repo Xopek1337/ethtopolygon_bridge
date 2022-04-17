@@ -14,7 +14,7 @@ if (config.proofApi) {
 const privateKey = config.user1.privateKey
 const userAddress = config.user1.address
 
-const getPOSClient = (network = 'mainnet', version = 'polygon') => {
+const getPOSClient = (network = 'mainnet', version = 'v1') => {
   const posClient = new POSClient()
   return posClient.init({
     log: true,
@@ -43,6 +43,5 @@ module.exports = {
   pos: config.pos,
   from: config.user1.address,
   privateKey: config.user1.privateKey,
-  to: config.user2.address,
   proofApi: config.proofApi
 }

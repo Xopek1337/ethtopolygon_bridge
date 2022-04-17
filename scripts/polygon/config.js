@@ -11,14 +11,14 @@ module.exports = {
     rpc: process.env.RPC_NODE_URL_MAINNET,
   },
   child: {
-    rpc: 'https://rpc-mainnet.matic.network',
+    rpc: process.env.RPC_NODE_URL_POLYGON || 'https://rpc-mumbai.matic.today',
   },
   pos: {
     parent: {
       erc20: '0x655f2166b0709cd575202630952d71e2bb0d61af',
       erc721: process.env.ETHEREUM_ERC721,
       erc1155: '0x2e3Ef7931F2d0e4a7da3dea950FF3F19269d9063',
-      chainManagerAddress: '0x7CfA0f105a4922E89666D7D63689d9C9b1eA7a19', // Address of RootChainManager for POS Portal
+      chainManagerAddress: '0x932532aA4c0174b8453839A6E44eE09Cc615F2b7', // Address of RootChainManager for POS Portal
     },
     child: {
       erc721: process.env.POLYGON_ERC721,
@@ -35,8 +35,5 @@ module.exports = {
     //'<paste address belonging to private key here>', Your address
     address: process.env.USER1_FROM
   },
-  user2: {
-    address: process.env.USER2_FROM
-  },
-  proofApi: process.env.PROOF_API || 'https://apis.matic.network/'
+  proofApi: SCAN_API_KEY_POLYGON || 'https://apis.matic.network/'
 }
