@@ -46,6 +46,17 @@ Child Chain Manager address: 0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa
 3. Fill in the empty fields  
 
 #### How config.js and utils.js work
+```utils.js``` - script exports functionality to connect to the matic network
+You can change parameters into *getPOSClient* for testing needs, for example:
+```const getPOSClient = (network = 'testnet', version = 'mumbai')```
+
+```config.js``` - exports variables for .env file:
+* pos.parent.erc721 and pos.child.erc721 - smart contract addresses for ethereum and matic networks
+* user address and private key
+* backend service and proof api links
+* rpc node urls
+
+All raw addresses are default.
 
 #### Deposit (or how to transfer tokens from Ethereum to Polygon)
 1. Approve token id from ERC721Mint to the address ERC721PredicateProxy (```0xE6F45376f64e1F568BD1404C155e5fFD2F80F7AD```)
