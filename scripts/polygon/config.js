@@ -22,11 +22,13 @@ module.exports = {
       erc721: process.env.POLYGON_ERC721,
     },
   },
+  SYNCER_URL: 'https://testnetv3-syncer.api.matic.network/api/v1', // Backend service which syncs the Matic sidechain state to a MySQL database which we use for faster querying. This comes in handy especially for constructing withdrawal proofs while exiting assets from Plasma.
+  WATCHER_URL: 'https://testnetv3-watcher.api.matic.network/api/v1', // Backend service which syncs the Matic Plasma contract events on Ethereum mainchain to a MySQL database which we use for faster querying. This comes in handy especially for listening to asset deposits on the Plasma contract.
   user1: {
     // '<paste your private key here>' - A sample private key prefix with `0x`
     privateKey: process.env.PRIVATE_KEY,
     //'<paste address belonging to private key here>', Your address
     address: process.env.USER1_FROM
   },
-  proofApi: SCAN_API_KEY_POLYGON || 'https://apis.matic.network/'
+  proofApi: process.env.SCAN_API_KEY_POLYGON || 'https://apis.matic.network/'
 }
