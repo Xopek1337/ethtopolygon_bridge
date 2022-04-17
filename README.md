@@ -21,6 +21,7 @@ After our contracts are linked in mapper, we can move tokens from Ethereum to Po
 so you must first add the desired address to the managers.
 
 Child Chain Manager address: 0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa
+
 * https://docs.polygon.technology/docs/develop/ethereum-polygon/mintable-assets
 
 
