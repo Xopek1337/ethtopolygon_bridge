@@ -10,8 +10,8 @@ async function main() {
   try {
     await hre.run("verify:verify", {
       address: data.PolygonERC721Mint,
-      constructorArguments: [process.env.ERC721MINT_NAME, 
-        process.env.ERC721MINT_SYMBOL, process.env.ERC721MINT_URI],
+      constructorArguments: [process.env.POLYGON_ERC721MINT_NAME, 
+        process.env.POLYGON_ERC721MINT_SYMBOL, process.env.POLYGON_ERC721MINT_URI],
       contract: "contracts/PolygonERC721Mint.sol:PolygonERC721Mint",
     });
   } catch (e) {

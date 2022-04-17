@@ -7,8 +7,8 @@ async function main() {
   const [deployer] = await hre.ethers.getSigners();
 
   const PolygonERC721MintInstance = await ethers.getContractFactory('PolygonERC721Mint');
-  const PolygonERC721Mint = await PolygonERC721MintInstance.deploy(process.env.ERC721MINT_NAME, 
-    process.env.ERC721MINT_SYMBOL, process.env.ERC721MINT_URI);
+  const PolygonERC721Mint = await PolygonERC721MintInstance.deploy(process.env.POLYGON_ERC721MINT_NAME, 
+    process.env.POLYGON_ERC721MINT_SYMBOL, process.env.POLYGON_ERC721MINT_URI);
 
   console.log('Network', network);
   console.log('Deploying contracts with the account:', deployer.address);

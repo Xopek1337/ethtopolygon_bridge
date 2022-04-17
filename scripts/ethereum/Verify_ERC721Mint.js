@@ -10,8 +10,8 @@ async function main() {
   try {
     await hre.run("verify:verify", {
       address: data.ERC721Mint,
-      constructorArguments: [process.env.ERC721MINT_NAME, 
-        process.env.ERC721MINT_SYMBOL, process.env.ERC721MINT_URI],
+      constructorArguments: [process.env.ETHEREUM_ERC721MINT_NAME, 
+        process.env.ETHEREUM_ERC721MINT_SYMBOL, process.env.ETHEREUM_ERC721MINT_URI],
       contract: "contracts/ERC721Mint.sol:ERC721Mint",
     });
   } catch (e) {
