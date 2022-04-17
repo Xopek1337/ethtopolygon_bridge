@@ -11,7 +11,7 @@ module.exports = {
     rpc: process.env.RPC_NODE_URL_MAINNET,
   },
   child: {
-    rpc: 'https://rpc-mumbai.matic.today',
+    rpc: 'https://rpc-mainnet.matic.network',
   },
   pos: {
     parent: {

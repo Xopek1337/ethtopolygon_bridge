@@ -8,10 +8,10 @@
 
 ### Polygon ERC721Mint
 #### Deploy
-```npx hardhat run scripts/polygon/Deploy_Polygon.js``` --network polygon  
+```npx hardhat run scripts/polygon/Deploy_ERC721Mint.js``` --network polygon  
 
 #### Verify
-```npx hardhat run scripts/polygon/Verify_Polygon.js``` --network polygon  
+```npx hardhat run scripts/polygon/Verify_ERC721Mint.js``` --network polygon  
 
 ***
 
