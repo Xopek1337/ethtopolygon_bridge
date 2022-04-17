@@ -155,11 +155,11 @@ contract PolygonERC721Mint is ERC721, Ownable {
         onlyManager
         returns(uint) 
     {
-        _mint(to, tokenId);
+        _mint(to, mintTokenId);
 
-        tokenId++;
+        mintTokenId++;
 
-        return tokenId;
+        return mintTokenId;
     }
 
 }
