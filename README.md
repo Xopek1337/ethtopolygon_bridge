@@ -47,10 +47,13 @@ Child Chain Manager address: 0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa
 
 #### How config.js and utils.js work
 ```utils.js``` - script exports functionality to connect to the matic network
+
 You can change parameters into *getPOSClient* for testing needs, for example:
+
 ```const getPOSClient = (network = 'testnet', version = 'mumbai')```
 
 ```config.js``` - exports variables for .env file:
+
 * pos.parent.erc721 and pos.child.erc721 - smart contract addresses for ethereum and matic networks
 * user address and private key
 * backend service and proof api links
