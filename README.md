@@ -1,17 +1,17 @@
 ### ERC721Mint
 #### Deploy
-```npx hardhat run scripts/ethereum/Deploy_ERC721Mint.js``` --network mainnet
+```npx hardhat run scripts/ethereum/deploy_ERC721Mint.js --network mainnet```
 
 #### Verify
-```npx hardhat run scripts/ethereum/Verify_ERC721Mint.js``` --network mainnet
+```npx hardhat run scripts/ethereum/verify_ERC721Mint.js --network mainnet```
 
 
 ### Polygon ERC721Mint
 #### Deploy
-```npx hardhat run scripts/polygon/Deploy_ERC721Mint.js``` --network polygon  
+```npx hardhat run scripts/polygon/deploy_PolygonERC721Mint.js --network polygon```
 
 #### Verify
-```npx hardhat run scripts/polygon/Verify_ERC721Mint.js``` --network polygon  
+```npx hardhat run scripts/polygon/verify_PolygonERC721Mint.js --network polygon```  
 
 ***
 
