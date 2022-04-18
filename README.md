@@ -78,6 +78,7 @@ All raw addresses are default.
 
 2. Withdrawal process:  
 
-* Open withdraw_start.js, change the tokenId to the token id (for example, ‘5’), execute the script, copy the txHash  
+* Open withdraw_start.js, change the tokenId to the token id hash (for example, for token id = 5, token id hash will be equal to  ‘0x0000000000000000000000000000000000000000000000000000000000000005’), 
+execute the script, copy the txHash  
 * Waiting for the checkpoint (~15 minutes)  
-* Opening withdraw_exit.js, substitute txHash in isCheckPointed() and withdrawExit(), execute the script  
+* Opening withdraw_exit.js, substitute txHash in withdrawStartTxHash, execute the script  

@@ -11,7 +11,6 @@ contract ERC721Mint is ERC721, Ownable {
     mapping(address => bool) public managers;
 
     uint public tokenId = 0;
-    uint public maxTokenId = 10000;
 
     address public metadata;
 
@@ -19,12 +18,12 @@ contract ERC721Mint is ERC721, Ownable {
 
     modifier onlyManager() {
         require(
-            managers[msg.sender], 
+            managers[msg.sender],
             'ERC721Mint: caller is not the manager'
         );
         _;
     }
-    
+
     constructor(string memory _name, string memory _symbol, string memory _uri) ERC721 (_name, _symbol) {
         uri = _uri;
 
@@ -51,13 +50,11 @@ contract ERC721Mint is ERC721, Ownable {
         return true;
     }
 
-    function mint(address to) 
-        external 
+    function mint(address to)
+        external
         onlyManager
-        returns(uint) 
+        returns(uint)
     {
-        require(tokenId <= maxTokenId || msg.sender == owner(), "tokenId can not exceen maxTokenId");
-
         _mint(to, tokenId);
 
         tokenId++;
@@ -65,9 +62,9 @@ contract ERC721Mint is ERC721, Ownable {
         return tokenId;
     }
 
-    function burn(uint _tokenId) 
+    function burn(uint _tokenId)
         external
-        returns(bool) 
+        returns(bool)
     {
         require(msg.sender == ownerOf(_tokenId), 'ERC721Mint:burn: only token owner can be burned');
 
@@ -76,49 +73,48 @@ contract ERC721Mint is ERC721, Ownable {
         return true;
     }
 
-    function _baseURI() 
-        internal 
-        view 
+    function _baseURI()
+        internal
+        view
         override
-        returns(string memory) 
+        returns(string memory)
     {
         return uri;
     }
 
-    function _setURI(string memory _newURI) 
+    function _setURI(string memory _newURI)
         external
         onlyOwner
-        returns(bool) 
+        returns(bool)
     {
         uri = _newURI;
 
         return true;
     }
 
-    function _setMetadata(address _metadata) 
-        public 
-        onlyOwner 
-        returns(bool) 
+    function _setMetadata(address _metadata)
+        public
+        onlyOwner
+        returns(bool)
     {
         metadata = _metadata;
 
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _tokenId) 
-        public 
-        virtual 
-        override 
+    function transferFrom(address _from, address _to, uint256 _tokenId)
+        public
+        virtual
+        override
     {
         require(!isPaused, 'ERC721Mint::transferFrom: transfers are closed');
 
         super.transferFrom(_from, _to, _tokenId);
     }
 
-    function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes memory _data) 
-        public 
-        virtual 
-        override 
+    function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes memory _data)
+        public
+        override
     {
         require(!isPaused, 'ERC721Mint::safeTransferFrom: transfers are closed');
 
@@ -126,9 +122,9 @@ contract ERC721Mint is ERC721, Ownable {
     }
 
     function _withdrawERC20(address _token, address _recepient)
-        external 
-        onlyOwner 
-        returns(bool) 
+        external
+        onlyOwner
+        returns(bool)
     {
         IERC20(_token).transfer(_recepient, IERC20(_token).balanceOf(address(this)));
 
@@ -136,9 +132,9 @@ contract ERC721Mint is ERC721, Ownable {
     }
 
     function _withdrawERC721(address _token, address _recepient, uint _tokenId)
-        external 
-        onlyOwner 
-        returns(bool) 
+        external
+        onlyOwner
+        returns(bool)
     {
         IERC721(_token).transferFrom(address(this), _recepient, _tokenId);
 
