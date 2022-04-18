@@ -40,6 +40,16 @@ contract PolygonERC721Mint is ERC721, Ownable {
         managers[msg.sender] = true;
     }
 
+    function _updateManagerList(address _manager, bool _status)
+        external
+        onlyOwner
+        returns(bool)
+    {
+        managers[_manager] = _status;
+
+        return true;
+    }
+
     function _baseURI() 
         internal 
         view 
