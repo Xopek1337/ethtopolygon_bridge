@@ -67,7 +67,7 @@ All raw addresses are default.
 
 * user (address) - the address of the user to whom the token will be transferred (specify your own)  
 * rootToken (address) - address ERC721Mint  
-* depositData (bytes) - encoded abi tokenid  
+* depositData (bytes) - encoded abi tokenId  
 
 #### Withdraw (or how to transfer tokens from Polygon to Ethereum)
 1. We specify the necessary token addresses in .env:  
