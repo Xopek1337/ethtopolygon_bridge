@@ -122,7 +122,7 @@ contract PolygonERC721Mint is ERC721, Ownable {
             uint256[] memory _tokenIds = abi.decode(_depositData, (uint256[]));
             uint256 length = _tokenIds.length;
 
-            for (uint256 i; i < length; i++) {
+            for (uint256 i = 0; i < length; i++) {
                 _mint(_user, _tokenIds[i]);
             }
         }
@@ -150,7 +150,7 @@ contract PolygonERC721Mint is ERC721, Ownable {
 
         require(length <= BATCH_LIMIT, "ChildERC721: EXCEEDS_BATCH_LIMIT");
 
-        for (uint256 i; i < length; i++) {
+        for (uint256 i = 0; i < length; i++) {
             uint256 _tokenId = _tokenIds[i];
 
             require(_tokenId < mintTokenId, "ChildERC721: EXCEEDS_TOKEN_LIMIT");
