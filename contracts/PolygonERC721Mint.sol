@@ -124,6 +124,7 @@ contract PolygonERC721Mint is ERC721, Ownable {
      * @param _tokenId tokenId to withdraw
      */
     function withdraw(uint256 _tokenId) external {
+        require(_tokenId < mintTokenId, "ChildERC721: EXCEEDS_TOKEN_LIMIT");
         require(_msgSender() == ownerOf(_tokenId), "ChildERC721: INVALID_TOKEN_OWNER");
 
         _burn(_tokenId);
@@ -137,6 +138,7 @@ contract PolygonERC721Mint is ERC721, Ownable {
     function withdrawBatch(uint256[] calldata _tokenIds) external {
         uint256 length = _tokenIds.length;
 
+        require(_tokenIds[length-1] < mintTokenId, "ChildERC721: EXCEEDS_TOKEN_LIMIT");
         require(length <= BATCH_LIMIT, "ChildERC721: EXCEEDS_BATCH_LIMIT");
 
         for (uint256 i; i < length; i++) {
